@@ -56,7 +56,7 @@ def tick():
 # define draw handler
 def draw(canvas):
     text = format(count)
-    canvas.draw_text( text, (80, 125), 42, "white")
+    canvas.draw_text( text, (80, 125), 42, "block")
     canvas.draw_text(str(succes_stops) + '/' + str(total_stops), (190,30), 24, "pink")
     
 # Create a frame 
