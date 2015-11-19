@@ -4,27 +4,38 @@ import json
 from city import city
 exit=False
 while not exit:
-   cityname = raw_input('è¯·è¾“å…¥è¦æŸ¥è¯¢çš„åŸå¸‚:ï¼ˆè¾“å…¥qç»“æŸæŸ¥è¯¢ï¼‰\n')
+   cityname = raw_input('ÇëÊäÈëÒª²éÑ¯µÄ³ÇÊĞ£º£¨ÊäÈëq½áÊø²éÑ¯£©\n')
    if cityname=="q" or cityname=="Q":
-        print('æœ¬æ¬¡æŸ¥è¯¢ç»“æŸï¼Œæ¬¢è¿ä¸‹æ¬¡ä½¿ç”¨ï¼!')
+        print('±¾´Î²éÑ¯½áÊø£¬»¶Ó­ÏÂ´ÎÊ¹ÓÃ£¡!')
         exit=True
    else:
        citycode = city.get(cityname)
        if citycode:
              try:
-                url = ('http://www.weather.com.cn/data/cityinfo/%s.html'
+                url = ('http://www.weather.com.cn/adat/sk/%s.html'
                         % citycode)
-                content = urllib2.urlopen(url).read()
-                data = json.loads(content)
-                result = data['weatherinfo']
-                str_temp = ('%s\n%s ~ %s') % (
-                     result['weather'],
-                     result['temp1'],
-                     result['temp2']
+                content1 = urllib2.urlopen(url).read()
+                data1 = json.loads(content1)
+                result1 = data1['weatherinfo']
+                ur2 = ('http://www.weather.com.cn/data/cityinfo/%s.html'
+                        % citycode)
+                content2 = urllib2.urlopen(ur2).read()
+                data2 = json.loads(content2)
+                result2 = data2['weatherinfo']
+                str_temp = ('The wind:%s\nThe wind scale:%s\nThe Humidity:%s\nTemperature:%s~%s\nThe weather:%s\nUpdate time:%s') % (
+                     result1['WD'],
+                     result1['WS'],
+                     result1['SD'],
+                     result2['temp1'],
+                     result2['temp2'],
+                     result2['weather'],
+                     result1['time']
                  )
                 print str_temp
              except:
-                print 'æŸ¥è¯¢å¤±è´¥'
+                print '²éÑ¯Ê§°Ü'
        else:
-           print 'æ²¡æœ‰æ‰¾åˆ°è¯¥åŸå¸‚'
+           print 'Ã»ÓĞÕÒµ½¸Ã³ÇÊĞ'
+
+   
 
