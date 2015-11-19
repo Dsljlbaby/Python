@@ -4,9 +4,9 @@ import json
 from city import city
 exit=False
 while not exit:
-   cityname = raw_input('ÄãÏë²éÄÄ¸ö³ÇÊĞµÄÌìÆø£¿£¨ÊäÈëq½áÊø²éÑ¯£©\n')
+   cityname = raw_input('è¯·è¾“å…¥è¦æŸ¥è¯¢çš„åŸå¸‚:ï¼ˆè¾“å…¥qç»“æŸæŸ¥è¯¢ï¼‰\n')
    if cityname=="q" or cityname=="Q":
-        print('±¾´Î²éÑ¯½áÊø£¬»¶Ó­ÏÂ´ÎÊ¹ÓÃ£¡!')
+        print('æœ¬æ¬¡æŸ¥è¯¢ç»“æŸï¼Œæ¬¢è¿ä¸‹æ¬¡ä½¿ç”¨ï¼!')
         exit=True
    else:
        citycode = city.get(cityname)
@@ -24,7 +24,7 @@ while not exit:
                  )
                 print str_temp
              except:
-                print '²éÑ¯Ê§°Ü'
+                print 'æŸ¥è¯¢å¤±è´¥'
        else:
-           print 'Ã»ÓĞÕÒµ½¸Ã³ÇÊĞ'
+           print 'æ²¡æœ‰æ‰¾åˆ°è¯¥åŸå¸‚'
 
